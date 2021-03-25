@@ -8,7 +8,7 @@ export default function Movie(props) {
   const { movies } = props;
 
   // const { path } = useRouteMatch();
-  const { id } = useParams();
+  const { movieid } = useParams();
   // let id = 1;
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
@@ -16,7 +16,7 @@ export default function Movie(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/movies/${id}`) // Study this endpoint with Postman
+      .get(`http://localhost:5000/api/movies/${movieid}`) // Study this endpoint with Postman
       .then(response => {
         setMovie(response.data);
         // Study this response with a breakpoint or log statements
@@ -28,7 +28,7 @@ export default function Movie(props) {
       });
     // This effect should run every time time
     // the `id` changes... How could we do this?
-  }, [id]);
+  }, [movieid]);
 
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = evt => { }
